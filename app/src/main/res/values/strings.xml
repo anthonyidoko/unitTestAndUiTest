@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">UnitTestAndUITest</string>
+    <string name="name">Name</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="email">Email</string>
+    <string name="register">Register</string>
+    <string-array name="sex">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Confused</item>
+    </string-array>
+</resources>
