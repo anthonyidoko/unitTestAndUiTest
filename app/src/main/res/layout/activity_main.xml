@@ -13,8 +13,10 @@
         android:id="@+id/firstName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="50dp"
         android:hint="@string/name"
+        android:backgroundTint="@color/btn_bg"
+        style="@style/myCustomStyle"
         android:inputType="textPersonName"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="10dp" />
@@ -24,8 +26,9 @@
         android:id="@+id/phoneNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="20dp"
         android:hint="@string/phone_number"
+        style="@style/myCustomStyle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/firstName" />
@@ -34,24 +37,52 @@
         android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="20dp"
         android:hint="@string/email"
+        style="@style/myCustomStyle"
+        android:inputType="textEmailAddress"
         app:layout_constraintTop_toBottomOf="@+id/phoneNumber"
         tools:layout_editor_absoluteX="10dp" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="password"
+        style="@style/myCustomStyle"
+        android:inputType="textPassword"
+        app:layout_constraintTop_toBottomOf="@+id/email"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <EditText
+        android:id="@+id/confirmPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="confirm password"
+        style="@style/myCustomStyle"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <Spinner
         android:id="@+id/mySpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        app:layout_constraintTop_toBottomOf="@+id/email"
+        android:layout_marginTop="20dp"
+        style="@style/myCustomStyle"
+        app:layout_constraintTop_toBottomOf="@+id/confirmPassword"
         tools:layout_editor_absoluteX="10dp" />
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnRegister"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="18dp"
         android:background="@drawable/button_radius"
+        android:backgroundTint="@color/btn_bg"
         android:text="@string/register"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
