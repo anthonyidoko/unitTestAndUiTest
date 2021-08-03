@@ -21,7 +21,7 @@ class SecondActivity : AppCompatActivity() {
 //        val detail = findViewById<TextView>(R.id.detail)
 
         firstName.text = " First Name: ${intent.getStringExtra("EXTRA_NAME")}"
-        phoneNumber.text = " Phone Number: ${intent.getStringExtra("EXTRA_PHONENUMBER")}"
+        phoneNumber.text = " Phone Number: ${intent.getStringExtra("EXTRA_PHONE_NUMBER")}"
         email.text =  "Email: ${intent.getStringExtra("EXTRA_EMAIL")}"
         sex.text = "SEX: ${intent.getStringExtra("EXTRA_SEX")}"
 

@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
         val email = findViewById<EditText>(R.id.email)
         val btnRegister = findViewById<Button>(R.id.btnRegister)
         val spinner : Spinner = findViewById(R.id.mySpinner)
+        val functions = MyFunctions()
 
         ArrayAdapter.createFromResource(
             this,R.array.sex,R.layout.support_simple_spinner_dropdown_item
@@ -42,21 +43,24 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-
         btnRegister.setOnClickListener {
             val intent = Intent(this,SecondActivity::class.java)
-            intent.putExtra("EXTRA_NAME", firstName.text.toString())
-            intent.putExtra("EXTRA_EMAIL", email.text.toString())
-            intent.putExtra("EXTRA_PHONENUMBER", phoneNumber.text.toString())
-            intent.putExtra("EXTRA_SEX", spinner.selectedItem.toString())
-            startActivity(intent)
 
+            if (
+                functions.validateName(firstName) &&
+                functions.validateEmail(email) &&
+                functions.validateName(firstName) &&
+                functions.validatePhoneNumber(phoneNumber)
+            ) {
+                intent.putExtra("EXTRA_NAME", firstName.text.toString())
+                intent.putExtra("EXTRA_EMAIL", email.text.toString())
+                intent.putExtra("EXTRA_PHONE_NUMBER", phoneNumber.text.toString())
+                intent.putExtra("EXTRA_SEX", spinner.selectedItem.toString())
+                startActivity(intent)
+            }
 
         }
 
-
-
-
-
     }
+
 }
