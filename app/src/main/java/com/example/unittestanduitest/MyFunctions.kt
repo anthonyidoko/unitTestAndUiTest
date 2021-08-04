@@ -1,6 +1,7 @@
 package com.example.unittestanduitest
 
 import android.widget.EditText
+import android.widget.Spinner
 
 class MyFunctions {
     fun validateName(name: String): Boolean {
@@ -58,21 +59,31 @@ class MyFunctions {
         }
     }
 
+    fun validateGender(gender: String) :Boolean{
+        return gender == "Male" || gender == "Female" || gender == "Prefer not to say"
 
-    fun validateForm(name: EditText, email : EditText, phoneNumber : EditText) :Boolean{
-        if (!validateName(name.text.toString())){
-            name.requestFocus()
-            name.error = "invalid name"
-            return false
-        } else if (!validateEmail(email.text.toString())){
-            email.requestFocus()
-            email.error = "invalid email"
-            return false
-        } else if (!validatePhoneNumber(phoneNumber.text.toString())){
-            phoneNumber.requestFocus()
-            phoneNumber.error = "invalid phone number"
-            return false
-        }
-        return true
+    }
+
+
+    fun validateForm(name: EditText, email : EditText, phoneNumber : EditText,gender :Spinner) :Boolean{
+        return (validateName(name.text.toString()) &&
+                validateEmail(email.text.toString()) &&
+                validatePhoneNumber(phoneNumber.text.toString())&&
+                validateGender(gender.selectedItem.toString()))
+//        if (!validateName(name.text.toString())){
+//            name.requestFocus()
+//            name.error = "invalid name"
+//            return false
+//        } else if (!validateEmail(email.text.toString())){
+//            email.requestFocus()
+//            email.error = "invalid email"
+//            return false
+//        } else if (!validatePhoneNumber(phoneNumber.text.toString())){
+//            phoneNumber.requestFocus()
+//            phoneNumber.error = "invalid phone number"
+//            return false
+//        } else if(!validateGender(gender.toString())){
+//        }
+//        return true
     }
 }

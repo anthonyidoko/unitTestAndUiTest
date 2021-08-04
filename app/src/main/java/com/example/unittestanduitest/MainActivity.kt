@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
         val email = findViewById<EditText>(R.id.email)
         val btnRegister = findViewById<Button>(R.id.btnRegister)
         val spinner : Spinner = findViewById(R.id.mySpinner)
+//        val spinnerText = findViewById<TextView>(R.id.spinnerText)
         val functions = MyFunctions()
 
         ArrayAdapter.createFromResource(
@@ -47,7 +48,7 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this,SecondActivity::class.java)
 
             if (
-                functions.validateForm(firstName,email,phoneNumber)
+                functions.validateForm(firstName,email,phoneNumber,spinner)
             ) {
                 intent.putExtra("EXTRA_NAME", firstName.text.toString())
                 intent.putExtra("EXTRA_EMAIL", email.text.toString())
@@ -63,6 +64,11 @@ class MainActivity : AppCompatActivity() {
             } else if(!functions.validateEmail(email.text.toString())){
                 email.requestFocus()
                 email.error = "invalid email"
+            } else if(!functions.validateGender(spinner.selectedItem.toString())){
+                Toast.makeText(this,"Invalid gender input", Toast.LENGTH_LONG)
+//                spinnerText.requestFocus()
+//                spinnerText.visibility = View.VISIBLE
+
             }
 
         }
@@ -70,6 +76,3 @@ class MainActivity : AppCompatActivity() {
     }
 
 }
-//functions.validateName(firstName.text.toString()) &&
-//functions.validateEmail(email.text.toString()) &&
-//functions.validatePhoneNumber(phoneNumber.text.toString())

@@ -44,28 +44,6 @@
         app:layout_constraintTop_toBottomOf="@+id/phoneNumber"
         tools:layout_editor_absoluteX="10dp" />
 
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:hint="password"
-        style="@style/myCustomStyle"
-        android:inputType="textPassword"
-        app:layout_constraintTop_toBottomOf="@+id/email"
-        tools:layout_editor_absoluteX="16dp" />
-
-    <EditText
-        android:id="@+id/confirmPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:hint="confirm password"
-        style="@style/myCustomStyle"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <Spinner
         android:id="@+id/mySpinner"
@@ -73,8 +51,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         style="@style/myCustomStyle"
-        app:layout_constraintTop_toBottomOf="@+id/confirmPassword"
+        app:layout_constraintTop_toBottomOf="@+id/email"
         tools:layout_editor_absoluteX="10dp" />
+
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnRegister"

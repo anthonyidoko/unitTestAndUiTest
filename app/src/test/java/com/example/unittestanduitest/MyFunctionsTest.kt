@@ -7,7 +7,7 @@ import org.junit.Before
 import org.junit.Test
 
 class MyFunctionsTest {
-    lateinit var myFunctions :MyFunctions
+    private lateinit var myFunctions :MyFunctions
 
     @Before
     fun setUp(){
@@ -158,5 +158,28 @@ class MyFunctionsTest {
     fun phoneNumberWithSpecialCharacter_returnsFalse() {
         val phoneNumber = myFunctions.validatePhoneNumber("08131200.63")
         assertEquals(false,phoneNumber)
+    }
+
+    //TESTS FOR GENDER VALIDATION
+
+    //When gender is empty
+    @Test
+    fun emptyValuePassed_returnsFalse(){
+        val result = myFunctions.validateGender("")
+        assertEquals(false,result)
+    }
+
+    //When gender is the default Gender
+    @Test
+    fun GenderValuePassedIsTheDefault_returnsFalse(){
+        val result = myFunctions.validateGender("Gender")
+        assertEquals(false,result)
+    }
+
+    //When gender is the default a correct gender
+    @Test
+    fun GenderValuePassedIsValidGender_returnsTrue(){
+        val result = myFunctions.validateGender("Male")
+        assertEquals(true,result)
     }
 }
