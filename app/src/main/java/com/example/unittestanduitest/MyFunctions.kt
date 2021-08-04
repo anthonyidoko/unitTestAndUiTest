@@ -3,16 +3,11 @@ package com.example.unittestanduitest
 import android.widget.EditText
 
 class MyFunctions {
-    fun validateName(name: EditText): Boolean {
+    fun validateName(name: String): Boolean {
         val pattern = Regex("[a-zA-Z]+")
 
-        if (!pattern.containsMatchIn(name.text)) {
-            name.requestFocus()
-            name.error = "Only alphabets are valid input"
-            return false
-        } else if (name.text.isEmpty()) {
-            name.requestFocus()
-            name.error = "This field cannot be empty"
+        if (!pattern.containsMatchIn(name) || name.length<2 || name.isEmpty()) {
+
             return false
         }
 
@@ -20,7 +15,7 @@ class MyFunctions {
 
     }
 
-    fun validateEmail(email: EditText): Boolean {
+    fun validateEmail(email: String): Boolean {
         val emailPattern = Regex(
             "(?:[a-z0-9!#\$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#\$%&'*+/=?^_`{|}~-]+)*" +
                     "|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[" +
@@ -30,31 +25,54 @@ class MyFunctions {
                     "[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\" +
                     "x0b\\x0c\\x0e-\\x7f])+)\\])")
 
-        if (!emailPattern.containsMatchIn(email.text)) {
-            email.requestFocus()
-            email.error = "invalid email input"
+        if (!emailPattern.containsMatchIn(email)) {
+
             return false
-        } else if(email.text.isEmpty()){
-            email.requestFocus()
-            email.error = "email field cannot be blank"
+        } else if(email.isEmpty()){
+
             return false
         }
         return true
     }
 
-    fun validatePhoneNumber(number: EditText): Boolean {
+    fun validatePhoneNumber(number: String): Boolean {
         val pattern = Regex("^(080||081||070||090||2348||2347)[1-9]+")
-        if (pattern.containsMatchIn(number.text)) {
-            if ((number.text.startsWith("080")|| number.text.startsWith("081")||
-                    number.text.startsWith("070")||number.text.startsWith("090")) &&
-                    number.text.length==11){
-                return true
-            } else return number.text.length == 13
+        val wrongPattern = Regex("[a-zA-Z]+")
+        val specialCharacters = Regex("[.!#@$%^&*()_+=>.,<]")
+        if (pattern.containsMatchIn(number) && !wrongPattern.containsMatchIn(number) && !specialCharacters.containsMatchIn(number)) {
+            return ((number.startsWith("080") ||
+                    number.startsWith("081") ||
+                    number.startsWith("071") ||
+                    number.startsWith("090") ||
+                    number.startsWith("070") ||
+                    number.startsWith("091")) &&
+                    number.length==11) ||
+                    ((number.startsWith("2347")||
+                    (number.startsWith("2348"))) && number.length==13)
 
-        } else{
-            number.requestFocus()
-            number.error = "Invalid mobile number"
+        } else if (number.isEmpty()) {
+
+            return false
+        }else{
             return false
         }
+    }
+
+
+    fun validateForm(name: EditText, email : EditText, phoneNumber : EditText) :Boolean{
+        if (!validateName(name.text.toString())){
+            name.requestFocus()
+            name.error = "invalid name"
+            return false
+        } else if (!validateEmail(email.text.toString())){
+            email.requestFocus()
+            email.error = "invalid email"
+            return false
+        } else if (!validatePhoneNumber(phoneNumber.text.toString())){
+            phoneNumber.requestFocus()
+            phoneNumber.error = "invalid phone number"
+            return false
+        }
+        return true
     }
 }

@@ -47,16 +47,22 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this,SecondActivity::class.java)
 
             if (
-                functions.validateName(firstName) &&
-                functions.validateEmail(email) &&
-                functions.validateName(firstName) &&
-                functions.validatePhoneNumber(phoneNumber)
+                functions.validateForm(firstName,email,phoneNumber)
             ) {
                 intent.putExtra("EXTRA_NAME", firstName.text.toString())
                 intent.putExtra("EXTRA_EMAIL", email.text.toString())
                 intent.putExtra("EXTRA_PHONE_NUMBER", phoneNumber.text.toString())
                 intent.putExtra("EXTRA_SEX", spinner.selectedItem.toString())
                 startActivity(intent)
+            }else if(!functions.validateName(firstName.text.toString())){
+                firstName.requestFocus()
+                firstName.error = "invalid name input"
+            } else if (!functions.validatePhoneNumber(phoneNumber.text.toString())){
+                phoneNumber.requestFocus()
+                phoneNumber.error = "invalid phone number"
+            } else if(!functions.validateEmail(email.text.toString())){
+                email.requestFocus()
+                email.error = "invalid email"
             }
 
         }
@@ -64,3 +70,6 @@ class MainActivity : AppCompatActivity() {
     }
 
 }
+//functions.validateName(firstName.text.toString()) &&
+//functions.validateEmail(email.text.toString()) &&
+//functions.validatePhoneNumber(phoneNumber.text.toString())

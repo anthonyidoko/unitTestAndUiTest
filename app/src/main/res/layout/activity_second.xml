@@ -8,7 +8,7 @@
     tools:context=".SecondActivity">
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/receivedName"
         style="@style/myCustomStyle2"
         android:layout_marginTop="50dp"
         android:layout_width="match_parent"
@@ -17,30 +17,30 @@
         tools:layout_editor_absoluteX="-54dp" />
 
     <TextView
-        android:id="@+id/phoneNumber"
+        android:id="@+id/receivedNumber"
         style="@style/myCustomStyle2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        app:layout_constraintTop_toBottomOf="@+id/name"
+        app:layout_constraintTop_toBottomOf="@+id/receivedName"
         tools:layout_editor_absoluteX="0dp" />
 
     <TextView
-        android:id="@+id/email"
+        android:id="@+id/receivedEmail"
         style="@style/myCustomStyle2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        app:layout_constraintTop_toBottomOf="@+id/phoneNumber"
+        app:layout_constraintTop_toBottomOf="@+id/receivedNumber"
         tools:layout_editor_absoluteX="0dp" />
 
     <TextView
-        android:id="@+id/sex"
+        android:id="@+id/receivedSex"
         style="@style/myCustomStyle2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        app:layout_constraintTop_toBottomOf="@+id/email"
+        app:layout_constraintTop_toBottomOf="@+id/receivedEmail"
         tools:layout_editor_absoluteX="0dp" />
 
 

@@ -14,10 +14,10 @@ class SecondActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
 
-        val firstName = findViewById<TextView>(R.id.name)
-        val phoneNumber = findViewById<TextView>(R.id.phoneNumber)
-        val email = findViewById<TextView>(R.id.email)
-        val sex = findViewById<TextView>(R.id.sex)
+        val firstName = findViewById<TextView>(R.id.receivedName)
+        val phoneNumber = findViewById<TextView>(R.id.receivedNumber)
+        val email = findViewById<TextView>(R.id.receivedEmail)
+        val sex = findViewById<TextView>(R.id.receivedSex)
 //        val detail = findViewById<TextView>(R.id.detail)
 
         firstName.text = " First Name: ${intent.getStringExtra("EXTRA_NAME")}"
