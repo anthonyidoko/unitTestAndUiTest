@@ -7,11 +7,12 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="app_bg">#283593</color>
-    <color name="app_text">#ffffff</color>
+    <color name="app_bg">#bdbdbd</color>
+    <color name="app_text">#000000</color>
     <color name="app_text_field">#5c6bc0</color>
     <color name="btn_bg">#f57f17</color>
-    <color name="btn_text">#000000</color>
+    <color name="helper_text_color">#dd2c00</color>
+    <color name="profile_bg">#4a148c</color>
 
 
 </resources>

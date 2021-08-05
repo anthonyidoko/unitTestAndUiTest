@@ -23,7 +23,7 @@ class MyFunctionsTest {
 
     //Test for empty input
     @Test
-    fun empty_nameValue_input_returns_false() {
+    fun emptyNameValueInput_returns_false() {
         val checker = myFunctions.validateName("")
         assertEquals(false, checker)
     }
@@ -68,15 +68,29 @@ class MyFunctionsTest {
 
     //Test email input without . symbol
     @Test
-    fun emailInputWithoutdotSymbol_returnsFalse() {
+    fun emailInputWithoutDotSymbol_returnsFalse() {
         val email = myFunctions.validateEmail("anthonyidoko@decagondev")
+        assertEquals(false,email)
+    }
+
+    //Test email input with multiple dots (..+) symbol before the domain name
+    @Test
+    fun emailInputWithMultipleDotsSymbol_returnsFalse() {
+        val email = myFunctions.validateEmail("anthonyidoko@decagon...dev")
         assertEquals(false,email)
     }
 
     //Test email input without .domain name
     @Test
-    fun emailInputWithoutdotDomainName_returnsFalse() {
+    fun emailInputWithoutDotDomainName_returnsFalse() {
         val email = myFunctions.validateEmail("anthony.idoko@decagon")
+        assertEquals(false,email)
+    }
+
+    //Test email input with special characters apart from @
+    @Test
+    fun emailInputWithSpecialCharacterApartFromTheAtSymbol_returnsFalse() {
+        val email = myFunctions.validateEmail("anthony.idoko@de;;;cagon*&%.dev")
         assertEquals(false,email)
     }
 

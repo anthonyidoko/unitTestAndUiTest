@@ -5,6 +5,10 @@
     <string name="email">Email</string>
     <string name="register">Register</string>
     <string name="invalid_choice">invalid choice</string>
+    <string name="full_name">Full Name:</string>
+    <string name="register1">Registration Page</string>
+    <string name="profile">Profile Page</string>
+    <string name="invalid_gender_choice">invalid gender choice</string>
     <string-array name="sex">
         <item>Gender</item>
         <item>Male</item>

@@ -18,20 +18,12 @@ class SecondActivity : AppCompatActivity() {
         val phoneNumber = findViewById<TextView>(R.id.receivedNumber)
         val email = findViewById<TextView>(R.id.receivedEmail)
         val sex = findViewById<TextView>(R.id.receivedSex)
-//        val detail = findViewById<TextView>(R.id.detail)
 
-        firstName.text = " First Name: ${intent.getStringExtra("EXTRA_NAME")}"
-        phoneNumber.text = " Phone Number: ${intent.getStringExtra("EXTRA_PHONE_NUMBER")}"
-        email.text =  "Email: ${intent.getStringExtra("EXTRA_EMAIL")}"
-        sex.text = "SEX: ${intent.getStringExtra("EXTRA_SEX")}"
+        firstName.text = "FULL NAME:   ${intent.getStringExtra("EXTRA_NAME")}"
+        phoneNumber.text = "PHONE NUMBER:   ${intent.getStringExtra("EXTRA_PHONE_NUMBER")}"
+        email.text =  "EMAIL:   ${intent.getStringExtra("EXTRA_EMAIL")}"
+        sex.text = "SEX:   ${intent.getStringExtra("EXTRA_SEX")}"
 
-//        detail.text = """
-//            Name : $firstName.
-//            Phone Number : $phoneNumber
-//            Email : $email
-//            Sex : $sex
-//        """.trimIndent()
-//        detail.text = firstName
 
 
 

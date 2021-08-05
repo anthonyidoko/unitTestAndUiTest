@@ -4,6 +4,8 @@ import android.widget.EditText
 import android.widget.Spinner
 
 class MyFunctions {
+
+    //Validate name input
     fun validateName(name: String): Boolean {
         val pattern = Regex("[a-zA-Z]+")
 
@@ -16,6 +18,8 @@ class MyFunctions {
 
     }
 
+
+    //Email Validation
     fun validateEmail(email: String): Boolean {
         val emailPattern = Regex(
             "(?:[a-z0-9!#\$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#\$%&'*+/=?^_`{|}~-]+)*" +
@@ -36,6 +40,8 @@ class MyFunctions {
         return true
     }
 
+
+    //Validate Phone Number
     fun validatePhoneNumber(number: String): Boolean {
         val pattern = Regex("^(080||081||070||090||2348||2347)[1-9]+")
         val wrongPattern = Regex("[a-zA-Z]+")
@@ -59,31 +65,21 @@ class MyFunctions {
         }
     }
 
+
+    //Validate gender
     fun validateGender(gender: String) :Boolean{
         return gender == "Male" || gender == "Female" || gender == "Prefer not to say"
 
     }
 
 
-    fun validateForm(name: EditText, email : EditText, phoneNumber : EditText,gender :Spinner) :Boolean{
-        return (validateName(name.text.toString()) &&
-                validateEmail(email.text.toString()) &&
-                validatePhoneNumber(phoneNumber.text.toString())&&
-                validateGender(gender.selectedItem.toString()))
-//        if (!validateName(name.text.toString())){
-//            name.requestFocus()
-//            name.error = "invalid name"
-//            return false
-//        } else if (!validateEmail(email.text.toString())){
-//            email.requestFocus()
-//            email.error = "invalid email"
-//            return false
-//        } else if (!validatePhoneNumber(phoneNumber.text.toString())){
-//            phoneNumber.requestFocus()
-//            phoneNumber.error = "invalid phone number"
-//            return false
-//        } else if(!validateGender(gender.toString())){
-//        }
-//        return true
+    //Validate the entire form field
+    fun validateForm(name: String, email : String,
+                     phoneNumber : String,gender :String) :Boolean{
+        return (validateName(name) &&
+                validateEmail(email) &&
+                validatePhoneNumber(phoneNumber)&&
+                validateGender(gender))
+
     }
 }

@@ -30,7 +30,7 @@ class MainActivityTest{
     @Before
     fun initValidString() {
         // Specify a valid string.
-        name = "idoko Anthony"
+        name = "Idoko Anthony"
         phoneNumber = "08131200462"
         email = "anthony.idoko@decagon.dev"
         gender = "Male"
@@ -42,16 +42,18 @@ class MainActivityTest{
 
     @Test
     fun verify_singup_successful(){
-        onView(withId(R.id.firstName)).perform(typeText(name), closeSoftKeyboard())
+        onView(withId(R.id.name)).perform(typeText(name), closeSoftKeyboard())
         onView(withId(R.id.phoneNumber)).perform(typeText(phoneNumber), closeSoftKeyboard())
         onView(withId(R.id.email)).perform(typeText(email), closeSoftKeyboard())
         onView(withId(R.id.mySpinner)).perform(click())
     }
 
+
+    //UI Test
     @Test
     fun verify_data_passed_to_profile_page(){
 
-        onView(withId(R.id.firstName)).perform(typeText(name), closeSoftKeyboard())
+        onView(withId(R.id.name)).perform(typeText(name), closeSoftKeyboard())
         onView(withId(R.id.phoneNumber)).perform(typeText(phoneNumber), closeSoftKeyboard())
         onView(withId(R.id.email)).perform(typeText(email), closeSoftKeyboard())
         onView(withId(R.id.mySpinner)).perform(click())
